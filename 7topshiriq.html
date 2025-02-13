@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raqamlarni Tekshirish va Hisoblash</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f7fa;
+        display: flex;
+        justify-content: center; /* Chapga joylashish */
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      .container {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 900px;
+        padding: 30px;
+        text-align: left; /* Chapga joylashish */
+      }
+      h1 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      label {
+        font-size: 1rem;
+        color: #555;
+        margin-right: 10px;
+        display: block; /* Chapga joylashish uchun */
+        margin-bottom: 8px;
+      }
+      input[type="number"],
+      input[type="text"] {
+        padding: 10px;
+        font-size: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        width: 100%; /* Kenglikni to'liq berish */
+        max-width: 300px; /* Maksimal kenglik */
+        transition: border-color 0.3s;
+      }
+      input[type="number"]:focus,
+      input[type="text"]:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      p {
+        font-size: 1.1rem;
+        color: #4caf50; /* Yashil rang */
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      .section {
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="file:///C:/Users/user/OneDrive/Ishchi%20stol/Cowork/IT/Virtual%20filio/html/index.html#portfolio"
+      style="position: absolute; top: 10px; left: 10px"
+    >
+      <img src="left-arrow.png" alt="Back" style="width: 50px; height: 50px" />
+    </a>
+    <div class="container">
+      <h1>Raqamlarni Tekshirish va Hisoblash Dasturi</h1>
+
+      <!-- 1. Kiritilgan 2 ta sondan kattasini topish -->
+      <div class="section">
+        <h2>1. Kiritilgan 2 ta sondan kattasini aniqlash</h2>
+        <label for="num1">Birinchi son:</label>
+        <input type="number" id="num1" placeholder="Son 1" />
+        <label for="num2">Ikkinchi son:</label>
+        <input type="number" id="num2" placeholder="Son 2" />
+        <button onclick="findLarger()">Kattasini topish</button>
+        <p id="result1"></p>
+      </div>
+
+      <!-- 2. Raqamning xonali sonini aniqlash -->
+      <div class="section">
+        <h2>2. Raqamning xonali sonini aniqlash</h2>
+        <label for="singleDigitNumber">Raqam kiriting:</label>
+        <input type="number" id="singleDigitNumber" placeholder="Raqam" />
+        <button onclick="checkDigitLength()">Xonali sonni tekshirish</button>
+        <p id="result2"></p>
+      </div>
+
+      <!-- 3. Musbat sonlar sonini topish -->
+      <div class="section">
+        <h2>3. Musbat sonlar sonini hisoblash</h2>
+        <label for="a">a soni:</label>
+        <input type="number" id="a" placeholder="Son a" />
+        <label for="b">b soni:</label>
+        <input type="number" id="b" placeholder="Son b" />
+        <label for="c">c soni:</label>
+        <input type="number" id="c" placeholder="Son c" />
+        <button onclick="countPositive()">Musbat sonlarni hisoblash</button>
+        <p id="result3"></p>
+      </div>
+
+      <!-- 4. Uchta sondan eng kattasini topish -->
+      <div class="section">
+        <h2>4. Uchta sondan eng kattasini topish</h2>
+        <label for="numA">Birinchi son:</label>
+        <input type="number" id="numA" placeholder="Son A" />
+        <label for="numB">Ikkinchi son:</label>
+        <input type="number" id="numB" placeholder="Son B" />
+        <label for="numC">Uchinchi son:</label>
+        <input type="number" id="numC" placeholder="Son C" />
+        <button onclick="findMax()">Eng kattasini topish</button>
+        <p id="result4"></p>
+      </div>
+
+      <!-- 5. Musbat yoki manfiy sonlarni tekshirish -->
+      <div class="section">
+        <h2>5. Musbat yoki manfiy sonlarni tekshirish</h2>
+        <label for="inputNumber">Raqam kiriting:</label>
+        <input type="number" id="inputNumber" placeholder="Raqam" />
+        <button onclick="checkPositiveNegative()">Musbat yoki manfiy?</button>
+        <p id="result5"></p>
+      </div>
+
+      <!-- 6. 5 ta sondan eng kattasi va eng kichigini topish -->
+      <div class="section">
+        <h2>6. 5 ta sondan eng kattasi va eng kichigini topish</h2>
+        <label for="fiveNumbers"
+          >5 ta raqamni kiriting (vergul bilan ajrating):</label
+        >
+        <input type="text" id="fiveNumbers" placeholder="Raqamlar" />
+        <button onclick="findMinMax5()">
+          Eng katta va eng kichikni topish
+        </button>
+        <p id="result6"></p>
+      </div>
+
+      <!-- 7. Hafta kunini aniqlash -->
+      <div class="section">
+        <h2>7. Hafta kunini aniqlash</h2>
+        <label for="dayNumber">Hafta kunini kiriting (1-7):</label>
+        <input type="number" id="dayNumber" placeholder="Kun raqami" />
+        <button onclick="checkDay()">Hafta kunini aniqlash</button>
+        <p id="result7"></p>
+      </div>
+
+      <!-- 8. Oy faslini aniqlash -->
+      <div class="section">
+        <h2>8. Oy faslini aniqlash</h2>
+        <label for="monthNumber">Oy raqamini kiriting (1-12):</label>
+        <input type="number" id="monthNumber" placeholder="Oy raqami" />
+        <button onclick="findSeason()">Faslni aniqlash</button>
+        <p id="result8"></p>
+      </div>
+    </div>
+
+    <script>
+      // 1. Kiritilgan 2 ta sondan kattasini topish
+      function findLarger() {
+        let num1 = document.getElementById("num1").value;
+        let num2 = document.getElementById("num2").value;
+        let result = document.getElementById("result1");
+
+        if (num1 === num2) {
+          result.innerHTML = "Sonlar teng.";
+        } else {
+          let larger = num1 > num2 ? num1 : num2;
+          result.innerHTML = "Kattasi: " + larger;
+        }
+      }
+
+      // 2. Raqamning xonali sonini aniqlash
+      function checkDigitLength() {
+        let number = document.getElementById("singleDigitNumber").value;
+        let result = document.getElementById("result2");
+
+        if (number < 10) {
+          result.innerHTML = "Bu bir xonali son.";
+        } else if (number < 100) {
+          result.innerHTML = "Bu ikki xonali son.";
+        } else if (number < 1000) {
+          result.innerHTML = "Bu uch xonali son.";
+        } else if (number < 10000) {
+          result.innerHTML = "Bu ko'p xonali son.";
+        } else {
+          result.innerHTML = "Juda ko'p xonali son.";
+        }
+      }
+
+      // 3. Musbat sonlar sonini topish
+      function countPositive() {
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        let c = document.getElementById("c").value;
+        let result = document.getElementById("result3");
+        let positiveCount = 0;
+
+        if (a > 0) positiveCount++;
+        if (b > 0) positiveCount++;
+        if (c > 0) positiveCount++;
+
+        result.innerHTML = "Musbat sonlar soni: " + positiveCount;
+      }
+
+      // 4. Uchta sondan eng kattasini topish
+      function findMax() {
+        let numA = document.getElementById("numA").value;
+        let numB = document.getElementById("numB").value;
+        let numC = document.getElementById("numC").value;
+        let result = document.getElementById("result4");
+
+        let largest = Math.max(numA, numB, numC);
+        result.innerHTML = "Eng katta son: " + largest;
+      }
+
+      // 5. Musbat yoki manfiy sonlarni tekshirish
+      function checkPositiveNegative() {
+        let number = document.getElementById("inputNumber").value;
+        let result = document.getElementById("result5");
+
+        if (number > 0) {
+          result.innerHTML = "Musbat son.";
+        } else if (number < 0) {
+          result.innerHTML = "Manfiy son.";
+        } else {
+          result.innerHTML = "Bu nol.";
+        }
+      }
+
+      // 6. 5 ta sondan eng kattasi va eng kichigini topish
+      function findMinMax5() {
+        let numbers = document.getElementById("fiveNumbers").value.split(",");
+        let result = document.getElementById("result6");
+
+        let min = Math.min(...numbers);
+        let max = Math.max(...numbers);
+
+        result.innerHTML = "Eng kichigi: " + min + " | Eng kattasi: " + max;
+      }
+
+      // 7. Hafta kunini aniqlash
+      function checkDay() {
+        let day = document.getElementById("dayNumber").value;
+        let result = document.getElementById("result7");
+
+        switch (parseInt(day)) {
+          case 1:
+            result.innerHTML = "Dushanba";
+            break;
+          case 2:
+            result.innerHTML = "Seshanba";
+            break;
+          case 3:
+            result.innerHTML = "Chorshanba";
+            break;
+          case 4:
+            result.innerHTML = "Payshanba";
+            break;
+          case 5:
+            result.innerHTML = "Juma";
+            break;
+          case 6:
+            result.innerHTML = "Shanba";
+            break;
+          case 7:
+            result.innerHTML = "Yakshanba";
+            break;
+          default:
+            result.innerHTML = "Noto'g'ri kun raqami.";
+            break;
+        }
+      }
+
+      // 8. Oy faslini aniqlash
+      function findSeason() {
+        let month = document.getElementById("monthNumber").value;
+        let result = document.getElementById("result8");
+
+        if (month >= 3 && month <= 5) {
+          result.innerHTML = "Bahor";
+        } else if (month >= 6 && month <= 8) {
+          result.innerHTML = "Yoz";
+        } else if (month >= 9 && month <= 11) {
+          result.innerHTML = "Kuz";
+        } else if (month == 12 || month <= 2) {
+          result.innerHTML = "Qish";
+        } else {
+          result.innerHTML = "Noto'g'ri oy raqami.";
+        }
+      }
+    </script>
+  </body>
+</html>
