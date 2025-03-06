@@ -1,0 +1,78 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f7fa;
+        display: flex;
+        justify-content: center; /* Chapga joylashish */
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      .container {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 900px;
+        padding: 30px;
+        text-align: left; /* Chapga joylashish */
+      }
+      h1 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      label {
+        font-size: 1rem;
+        color: #555;
+        margin-right: 10px;
+        display: block; /* Chapga joylashish uchun */
+        margin-bottom: 8px;
+      }
+      input[type="number"],
+      input[type="text"] {
+        padding: 10px;
+        font-size: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        width: 100%; /* Kenglikni to'liq berish */
+        max-width: 300px; /* Maksimal kenglik */
+        transition: border-color 0.3s;
+      }
+      input[type="number"]:focus,
+      input[type="text"]:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      p {
+        font-size: 1.1rem;
+        color: #4caf50; /* Yashil rang */
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      .section {
+        margin-bottom: 30px;
+      }
